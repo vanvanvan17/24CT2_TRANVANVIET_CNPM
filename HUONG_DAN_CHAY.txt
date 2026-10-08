@@ -1,0 +1,52 @@
+VNLibrary Ultimate Complete – MySQL, Không Prisma
+
+A. CÀI ĐẶT
+1. Cài Node.js 20 LTS.
+2. Cài MySQL Community Server 8.x.
+3. Mở MySQL và bảo đảm dịch vụ MySQL đang chạy.
+4. Giải nén thư mục này.
+5. Mở VS Code -> File -> Open Folder -> chọn thư mục VNLibrary_Ultimate_Complete_MySQL_NoPrisma.
+
+B. KIỂM TRA MẬT KHẨU MYSQL
+File .env đã đặt:
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=12345678
+DB_NAME=vnlibrary
+
+Nếu tài khoản root trên máy bạn đúng mật khẩu 12345678 thì không cần sửa gì.
+
+C. TẠO DATABASE + DỮ LIỆU MẪU
+Mở Terminal trong VS Code và chạy lần lượt:
+
+npm install
+npm run db:setup
+npm run db:seed
+npm run db:verify
+
+Kết quả verify mong đợi:
+users 1
+categories 12
+books 1213
+readers 287
+borrows 119
+fines 21
+overdue 21
+
+D. CHẠY WEBSITE
+npm run dev
+
+Mở Chrome:
+http://localhost:3000/login
+
+Tài khoản:
+Email: admin@vnlibrary.vn
+Mật khẩu: Admin@123
+
+E. LƯU Ý
+- Dự án dùng MySQL + mysql2 trực tiếp.
+- Không có thư mục Prisma.
+- Không chạy npx prisma.
+- Không cần SQLite.
+- Giao diện tiếng Việt.

@@ -1,0 +1,8 @@
+{
+  "name":"vnlibrary-ultimate-complete",
+  "version":"5.0.0",
+  "private":true,
+  "scripts":{"dev":"next dev","build":"next build","start":"next start","db:setup":"node scripts/setup-db.mjs","db:seed":"node scripts/seed.mjs","db:verify":"node scripts/verify-db.mjs"},
+  "dependencies":{"@types/node":"20.17.30","@types/react":"18.3.18","@types/react-dom":"18.3.5","bcryptjs":"3.0.2","mysql2":"3.14.1","next":"14.2.30","react":"18.3.1","react-dom":"18.3.1","recharts":"2.15.1"},
+  "devDependencies":{"typescript":"5.8.3","eslint":"8.57.1","eslint-config-next":"14.2.30"}
+}
