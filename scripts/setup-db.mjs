@@ -1,0 +1,4 @@
+import mysql from 'mysql2/promise';import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
+const __dirname=path.dirname(fileURLToPath(import.meta.url));const env=Object.fromEntries(fs.readFileSync(path.join(__dirname,'..','.env'),'utf8').split(/\r?\n/).filter(x=>x&& !x.startsWith('#')).map(x=>{const i=x.indexOf('=');return [x.slice(0,i),x.slice(i+1)]}));
+const c=await mysql.createConnection({host:env.DB_HOST||'localhost',port:Number(env.DB_PORT||3306),user:env.DB_USER||'root',password:env.DB_PASSWORD||''});await c.query(`CREATE DATABASE IF NOT EXISTS \`${env.DB_NAME||'vnlibrary'}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`);await c.query(`USE \`${env.DB_NAME||'vnlibrary'}\``);
+const sql=fs.readFileSync(path.join(__dirname,'schema.sql'),'utf8');for(const s of sql.split(/;\s*(?:\r?\n|$)/).map(x=>x.trim()).filter(Boolean))await c.query(s);await c.end();console.log('VNLibrary database created successfully.');

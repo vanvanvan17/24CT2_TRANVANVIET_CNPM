@@ -1,0 +1,1 @@
+import {query,exec} from '@/lib/db';export async function GET(){return Response.json(await query<any>('SELECT f.*,r.name reader_name FROM fines f JOIN readers r ON r.id=f.reader_id ORDER BY f.id DESC'))}export async function PATCH(req:Request){const {id}=await req.json();await exec('UPDATE fines SET status="PAID",paid_at=NOW() WHERE id=?',[id]);return Response.json({ok:true})}

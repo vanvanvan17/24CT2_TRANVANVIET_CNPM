@@ -1,0 +1,2 @@
+import {query} from '@/lib/db';
+export async function POST(req:Request){try{const {email}=await req.json();const rows=await query<any>('SELECT id FROM users WHERE email=?',[email]);return Response.json({message:rows.length?'Yêu cầu đã được ghi nhận. Trong bài triển khai thật, hệ thống sẽ gửi email đặt lại mật khẩu.':'Nếu email tồn tại, hệ thống đã ghi nhận yêu cầu.'})}catch{return Response.json({error:'Không thể xử lý yêu cầu'},{status:500})}}

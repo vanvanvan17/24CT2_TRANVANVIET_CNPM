@@ -1,0 +1,1 @@
+import {query} from '@/lib/db';export async function GET(){return Response.json(await query<any>('SELECT br.id, r.name reader_name,b.title book_title,br.due_date FROM borrows br JOIN readers r ON r.id=br.reader_id JOIN books b ON b.id=br.book_id WHERE br.status="BORROWING" AND br.due_date<=DATE_ADD(CURDATE(),INTERVAL 3 DAY) ORDER BY br.due_date'))}
