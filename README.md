@@ -1,6 +1,6 @@
-# VNLibrary Ultimate Complete – MySQL, Không Prisma
+# VNLibrary 
 
-Hệ thống quản lý thư viện bằng Next.js + TypeScript + MySQL + mysql2. **Không có Prisma.** Giao diện tiếng Việt.
+Hệ thống quản lý thư viện bằng Next.js + TypeScript + MySQL + mysql2.  Giao diện tiếng Việt.
 
 ## 1. Yêu cầu
 - Windows 10/11
